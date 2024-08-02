@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Summarizer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <img src="/static/logo.png" alt="Logo">
+        </div>
+
+        <nav class="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about-us-section">About Us</a></li>
+                <li><a href="#contact-section">Contact Us</a></li>
+                <li><a href="#privacy-policy-section">Privacy Policy</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <div class="intro-text">
+
+        <h1 class="best-text-summarizer">Best Text Summarizer</h1><br>
+        <div class="scrolling-text-container">
+
+            <div class="scrolling-text">
+                <span>Generate a Summary Quickly and Efficiently &nbsp;|&nbsp; Ideal for students, professionals, and anyone needing quick insights &nbsp;|&nbsp; Simple interface for easy and convenient use &nbsp;|&nbsp; Enhance your workflow by staying informed with minimal effort &nbsp;|&nbsp; Save valuable time that can be allocated to other tasks &nbsp;|&nbsp; Available anytime, and anywhere &nbsp;|&nbsp; </span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="container">
+        <div>
+            <form id="summarize-form" action="/summarize" method="post">
+
+
+                <div class="text-areas">
+                    <div>
+                        <textarea id="input_text" name="input_text" placeholder="Enter your text here">{{ input_text }}</textarea>
+                        <button class="words-btn-class" id="input-word-count" type="button">Words : </button>
+                        <button class="sample-text-btn-class" id="sample-text-btn" type="button">Sample Text</button>
+                        <button class="summarize" type="submit">Summarize</button>
+                    </div>
+
+                    <div>
+                        <textarea id="output_text" name="output_text" placeholder="Summary will appear here" readonly>{{ output_text }}</textarea>                        
+                        <button class="words-btn-class" id="output-word-count" type="button">Words : </button>
+                        <button class="clear-btn-class" id="clear-btn" type="button" onclick="document.getElementById('output_text').value=''">Clear All</button>
+                        <button class="summarize-file-btn" id="summarizeButton" type="button">
+                            Summarize a File
+                            <div class="loading hidden" id="loadingSpinner"></div>
+                        </button>
+                        <input type="file" id="fileInput" style="display: none;" />
+                    </div>
+                </div>
+
+
+                <div class="slider-container">
+                    <label for="summary_ratio" class="summary_length_text"><big>Summary Length</big></label>
+                    <input type="range" min="0.4" max="0.8" step="0.2" value="0.6" class="slider" id="summary_ratio" name="summary_ratio">
+                    <div class="slider-labels">
+                        <span>Low</span>
+                        <span>Medium</span>
+                        <span>High</span>
+                    </div>
+                </div>
+                
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="three-boxes-container-bg">
+        <section class="three-boxes-container">
+            <div class="box">
+                <div class="box-header">Key Features</div>
+                <div class="box-content">
+                    - Fast and accurate text summarization<br>
+                    - Supports various text formats<br>
+                    - Easy-to-use interface<br>
+                    - Adjustable summary length
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">Use Cases</div>
+                <div class="box-content">
+                    - Summarizing articles or reports<br>
+                    - Extracting key points from research papers<br>
+                    - Creating concise content for presentations<br>
+                    - Simplifying information for quick reading
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-header">Note</div>
+                <div class="box-content">
+                    - PDF file shouldn't have a password<br>
+                    - Ensure your input is within the token limit<br>
+                    - Use 'clear' button after each input<br>
+                    - Lengthy texts may fail to generate a summary<br>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="about-us-section" id="about-us-section">
+        <h2>About Us</h2>
+        <p>Welcome to our innovative Text Summarizer Web App! Our mission is to provide a simple, efficient, and user-friendly tool that helps you quickly summarize texts, making it easier to grasp essential information without having to read through entire documents.</p>
+        <h3>Our Journey</h3>
+        <p>The idea for this web app was born out of the need for a reliable and accurate text summarization tool that caters to both casual readers and professionals alike. Whether you're a student sifting through research papers, a journalist condensing articles, or a busy professional managing reports, our text summarizer aims to streamline your workflow and save you valuable time.</p>
+        <h3>Our Technology</h3>
+        <p>Powered by the state-of-the-art <code><b>facebook/bart-large-cnn</b></code> model, our summarizer leverages advanced NLP technology to ensure high-quality summaries. We continuously strive to improve our model and user experience, ensuring that our app remains at the forefront of text summarization solutions.</p>
+    </div>
+
+    <div class="contact-section" id="contact-section">
+        <h2 class="contact-heading">Contact us</h2>
+        <section class="social-links">
+
+            <a href="https://in.linkedin.com/in/kartik-bawake-99a70a" class="social-item">
+                <img src="/static/linkedIn icon.png" alt="LinkedIn" class="icon">
+                <span class="text">LinkedIn</span>
+            </a> 
+            <a href="https://www.instagram.com/k_artikkkk/" class="social-item">
+                <img src="/static/instagram icon.png" alt="Instagram" class="icon">
+                <span class="text">Instagram</span>
+            </a>
+            <a href="https://x.com/Karthik_Bawake" class="social-item">
+                <img src="/static/x icon.png" alt="Twitter" class="icon">
+                <span class="text">Twitter</span>
+            </a>
+            <a href="https://simonsmith.github.io/github-user-search/#/KartikBawake" class="social-item">
+                <img src="/static/git icon.png" alt="GitHub" class="icon">
+                <span class="text">GitHub</span>
+            </a>
+
+            <a href="https://www.facebook.com/kartik.bawake.92" class="social-item">
+                <img src="/static/facebook icon.png" alt="Facebook" class="icon">
+                <span class="text">Facebook</span>
+            </a>
+            <a href="https://wa.link/cg2z33" class="social-item">
+                <img src="/static/whatsapp icon.png" alt="Whatsapp" class="icon">
+                <span class="text">Whatsapp</span>
+            </a>
+
+        </section>
+    </div> 
+
+    <div class="privacy-policy-section" id="privacy-policy-section">
+        <h2>Privacy Policy</h2>
+        <p>Your privacy is important to us. This privacy policy explains how we collect, use, and protect your personal information when you use our Text Summarizer Web App.</p>
+        <h3>Information Collection</h3>
+        <p>We do collect information that you provide directly to us when you use our services, including your text inputs and any other data you choose to share. We do use the information to communicate with you about updates, security alerts, and other relevant information.</p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy;Kartik Bawake. 2024 Summerify Text Summarizer. All rights reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy-policy-section" >Privacy Policy</a></li>
+                <li><a href="#about-us-section">About Us</a></li>
+                <li><a href="#contact-section">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
