@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 API_URL = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
-API_KEY = "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"
+API_KEY = "???"
 
 UPLOAD_FOLDER = 'uploads'
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
