@@ -1,45 +1,77 @@
 # Summerify
 
-Summerify is a React frontend with a Spring Boot API for summarizing pasted text and extracting text from PDFs.
+A full-stack AI-powered text summarization application built using **Spring Boot**, **React**, and the **Hugging Face Inference API**.
 
-## Prerequisites
+<p align="center">
+  <img src="images/screenshot.png" alt="Summerify Screenshot" width="900">
+</p>
 
-- Java 17+
-- Maven 3.9+
-- Node.js 20+
+## Run Locally
 
-## Configure the Hugging Face token
+### 1. Clone the Repository
 
-The token is intentionally not stored in this repository. Set it in the terminal used to start the backend:
-
-```powershell
-$env:HUGGINGFACE_API_KEY = "your-token"
+```bash
+git clone https://github.com/KartikBawake/Summerify.git
+cd Summerify
 ```
 
-`backend/src/main/resources/application.properties` reads that value via `huggingface.api-key=${HUGGINGFACE_API_KEY:}`. For a deployed service, define this as a secret/environment variable in the hosting platform instead.
+### 2. Add Your Hugging Face API Token
 
-## Run locally
+Open:
 
-In one terminal:
-
-```powershell
-cd C:\Users\91935\Desktop\Summerify\backend
-mvn spring-boot:run
+```text
+backend/src/main/resources/application.properties
 ```
 
-In another terminal:
+Replace the placeholder with your Hugging Face API token:
 
-```powershell
-cd C:\Users\91935\Desktop\Summerify\frontend
+```properties
+huggingface.api.token=YOUR_HUGGING_FACE_API_TOKEN
+```
+
+> You can generate a free API token from your Hugging Face account under **Settings → Access Tokens**.
+
+### 3. Run the Backend
+
+Open a terminal and run:
+
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+> **Windows**
+
+```bash
+.\mvnw.cmd spring-boot:run
+```
+
+### 4. Run the Frontend
+
+Open a **new terminal** and run:
+
+```bash
+cd frontend
 npm install
 npm run dev
 ```
 
-Open the address printed by Vite (normally `http://localhost:5173`). The Vite development server forwards `/api` calls to Spring Boot on port 8080.
+### 5. Open the Application
 
-## API
+Visit:
 
-- `POST /api/summaries` — JSON body: `{ "text": "…", "ratio": 0.6 }`
-- `POST /api/documents/extract` — multipart form field: `file` (PDF, max 10 MB)
+```text
+http://localhost:5173
+```
 
-PDFs are processed in memory and are not saved to disk.
+---
+
+## Features
+
+- 📝 AI-powered text summarization
+- 📄 PDF text extraction
+- 🤖 Hugging Face Inference API integration
+- ⚡ Spring Boot REST API backend
+- ⚛️ React + Vite frontend
+- 🔄 Real-time communication between frontend and backend
+- 🎨 Clean and responsive user interface
