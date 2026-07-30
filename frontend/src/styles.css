@@ -1,0 +1,59 @@
+:root {
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #1e2b25;
+  background: #f6f4ec;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, textarea, input { font: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: not-allowed; opacity: .55; }
+
+main { width: min(1180px, calc(100% - 40px)); margin: 0 auto; padding: 82px 0 52px; }
+.hero { max-width: 735px; margin: 0 auto 55px; text-align: center; }
+.eyebrow { margin: 0 0 13px; color: #b14b32; font-size: .82rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+h1 { margin: 0; color: #18382c; font-family: Georgia, "Times New Roman", serif; font-size: clamp(2.7rem, 7vw, 5.4rem); font-weight: 500; letter-spacing: -.06em; line-height: .95; }
+.lede { margin: 22px auto 0; color: #5e6b64; font-size: 1.09rem; line-height: 1.65; }
+
+.workspace { padding: clamp(18px, 3vw, 32px); background: #fffdf8; border: 1px solid #dcd8cb; border-radius: 22px; box-shadow: 0 16px 45px rgba(41, 61, 49, .10); }
+.editor-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.editor { display: flex; min-width: 0; flex-direction: column; gap: 10px; color: #33443b; font-weight: 700; }
+.editor span { display: flex; justify-content: space-between; gap: 8px; }
+.editor small { color: #78827c; font-size: .78rem; font-weight: 600; }
+textarea { width: 100%; min-height: 295px; padding: 18px; resize: vertical; border: 1px solid #d4d9d3; border-radius: 12px; outline: none; background: #fcfcfa; color: #25352c; font-size: .98rem; line-height: 1.6; transition: border-color .2s, box-shadow .2s; }
+textarea:focus { border-color: #63916c; box-shadow: 0 0 0 3px rgba(99, 145, 108, .16); }
+textarea[readonly] { background: #f3f6f1; color: #435249; }
+.editor-actions { display: flex; min-height: 32px; gap: 15px; align-items: center; }
+.text-button { padding: 0; border: 0; color: #346c48; background: transparent; font-size: .86rem; font-weight: 750; text-decoration: underline; text-underline-offset: 3px; }
+.text-button:hover { color: #173c25; }
+
+.controls { display: flex; justify-content: space-between; gap: 34px; align-items: end; margin-top: 30px; padding-top: 26px; border-top: 1px solid #e8e5db; }
+.length-control { flex: 1; max-width: 500px; color: #435249; font-size: .9rem; }
+.length-control > span { display: block; margin-bottom: 11px; }
+.length-control input { width: 100%; accent-color: #397650; }
+.length-control div { display: flex; justify-content: space-between; margin-top: 6px; color: #7a857e; font-size: .75rem; }
+.primary-actions { display: flex; gap: 10px; }
+.primary, .secondary { min-height: 46px; padding: 0 21px; border-radius: 9px; font-weight: 750; }
+.primary { border: 1px solid #214e31; background: #214e31; color: white; }
+.primary:hover:not(:disabled) { background: #183d26; }
+.secondary { border: 1px solid #cbd2ca; background: #fffdf8; color: #425147; }
+.secondary:hover:not(:disabled) { background: #f1f4ee; }
+.notice { margin: 22px 0 0; padding: 12px 15px; border-left: 3px solid #c26544; background: #fff4e9; color: #7d402e; font-size: .92rem; line-height: 1.4; }
+
+.features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 58px; }
+.features article { padding: 5px 16px; border-left: 2px solid #a8c4a8; }
+.features h2 { margin: 0 0 8px; color: #244231; font-size: 1rem; }
+.features p { margin: 0; color: #66736b; font-size: .9rem; line-height: 1.6; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@media (max-width: 760px) {
+  main { width: min(100% - 28px, 1180px); padding-top: 50px; }
+  .hero { margin-bottom: 36px; }
+  .editor-grid, .features { grid-template-columns: 1fr; }
+  .controls { align-items: stretch; flex-direction: column; gap: 22px; }
+  .length-control { max-width: none; }
+  .primary-actions { justify-content: end; }
+  textarea { min-height: 235px; }
+}
